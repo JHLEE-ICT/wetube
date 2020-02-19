@@ -1,0 +1,19 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with Vanilla and NodeJS ",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JHLEE-ICT/wetube.git"
+  },
+  "author": "JHLEE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JHLEE-ICT/wetube/issues"
+  },
+  "homepage": "https://github.com/JHLEE-ICT/wetube#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
