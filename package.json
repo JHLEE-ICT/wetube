@@ -15,5 +15,8 @@
   "homepage": "https://github.com/JHLEE-ICT/wetube#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
