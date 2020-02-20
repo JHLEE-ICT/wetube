@@ -1,6 +1,11 @@
 //require : node_modules에서 찾는 것(import)
 //const express = require("express");
 import express from "express";
+import morgan from "morgan";
+import helmet from "helmet";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+
 //express 실행
 const app = express();
 
@@ -19,15 +24,14 @@ const handleHome = (req, res) => {
 //arrow function
 const handleProfile = (req, res) => res.send("You are on my profile");
 
-const betweenHome = (req, res, next) => {
-  console.log("Between");
-  next();
-};
-
-//원하는 만큼의 middleware를 두고 라우터를 반환
-app.use(betweenHome);
-
 //middleware란 요청과 응답사이에 있는 것
+//원하는 만큼의 middleware를 두고 라우터를 반환
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(helmet());
+app.use(morgan("dev"));
+
 app.get("/", handleHome);
 
 app.get("/profile", handleProfile);
