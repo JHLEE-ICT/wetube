@@ -5,14 +5,11 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+//default로 import 하지 않았을 때
+import { userRouter } from "./router";
 
 //express 실행
 const app = express();
-
-const PORT = 4000;
-
-const handleListening = () =>
-  console.log(`Listening on: http://localhost:${PORT}`);
 
 const handleHome = (req, res) => {
   //응답하려면 res.send
@@ -36,5 +33,8 @@ app.get("/", handleHome);
 
 app.get("/profile", handleProfile);
 
-//PORT에 listen을 하고 listen을 하기 시작하면 handleListeneing 함수가 실행됨
-app.listen(PORT, handleListening);
+//use의 의미 : 누군가 /user 경로에 접속하면 이 Router 전체를 사용하겠다는 의미
+app.use("/user", userRouter);
+
+//누군가 내 앱을 불러올 때 app object를 주겠다.
+export default app;
