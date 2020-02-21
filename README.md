@@ -50,3 +50,8 @@ session을 다루기 위해 cookie에 user정보를 저장할 것
 서버가 유저로부터 받은 데이터를 이해하는 방법
 
 데이터를 갖고있는 request object에 접근할 수 있게 하는 것
+
+##MVC
+*Model(data)
+*View(how does the data look)
+\*Controller(function that looks for data)
