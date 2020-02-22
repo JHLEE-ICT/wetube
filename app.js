@@ -13,6 +13,8 @@ import routes from "./routes";
 //express 실행
 const app = express();
 
+//view engine의 확장자를 정하는 과정, 기본폴더 => views가 되야함
+app.set("view engine", "pug");
 //middleware란 요청과 응답사이에 있는 것
 //원하는 만큼의 middleware를 두고 라우터를 반환
 app.use(cookieParser());

@@ -52,6 +52,11 @@ session을 다루기 위해 cookie에 user정보를 저장할 것
 데이터를 갖고있는 request object에 접근할 수 있게 하는 것
 
 ##MVC
-*Model(data)
-*View(how does the data look)
-\*Controller(function that looks for data)
+*Model
+data
+*View
+how does the data look
+Pug 사용 👉 일종의 view engine, 템플릿 언어
+`npm install pug`
+\*Controller
+function that looks for data
