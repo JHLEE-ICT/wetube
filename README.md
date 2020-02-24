@@ -52,11 +52,41 @@ session을 다루기 위해 cookie에 user정보를 저장할 것
 데이터를 갖고있는 request object에 접근할 수 있게 하는 것
 
 ##MVC
-*Model
+
+- Model
+
 data
-*View
+
+- View
+
 how does the data look
+
 Pug 사용 👉 일종의 view engine, 템플릿 언어
+
 `npm install pug`
-\*Controller
-function that looks for data
+
+### 템플릿에 정보를 추가하는 방법(변수를 전달하는 방법)
+
+- 전체 템플릿에 정보를 추가하는 방법
+
+미들웨어를 사용해야한다.
+
+locals : local 변수를 global 변수로 사용하도록 만들어 주는 것(템플릿, 컨트롤러, 뷰 어디서든지 사용할 수 있다)
+
+`res.locals.변수이름 = 값`
+
+이후 변수를 전역적으로 사용할 수 있다.
+
+미들웨어는 req를 next에 전달해줘야 하는 것 잊지 말것!!
+
+- 각각의(한) 템플릿에 정보를 추가하는 방법
+
+res.render(템플릿, 템플릿에 추가할 정보가 담긴 객체);
+
+- Controller
+
+  function that looks for data
+
+  기능
+
+  화면 표시
