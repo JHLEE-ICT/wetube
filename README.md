@@ -2,6 +2,10 @@
 
 Cloning Youtube with Vanilla and NodeJS
 
+<details>
+
+<summary>
+
 ## dependency란?
 
 프로젝트가 실행되기위해서 필요한 것
@@ -92,3 +96,7 @@ res.render(템플릿, 템플릿에 추가할 정보가 담긴 객체);
   화면 표시
 
   controller가 query에 접근하려면 method가 get이여야한다(get이 url에 정보를 표시해주기 때문)
+
+</summary>
+
+</details>
