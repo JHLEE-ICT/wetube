@@ -1,6 +1,9 @@
-//render(템플릿, 템플릿에 추가할 정보가 담긴 객체)
-export const home = (req, res) => res.render("home", { pageTitle: "Home" });
+import { videos } from "../db";
 
+//render(템플릿, 템플릿에 추가할 정보가 담긴 객체)
+export const home = (req, res) => {
+  res.render("home", { pageTitle: "Home", videos });
+};
 export const search = (req, res) => {
   //searchingBy = req.query.term을 가져오는 것과 같은 방법
   const {
@@ -8,9 +11,6 @@ export const search = (req, res) => {
   } = req;
   res.render("Search", { pageTitle: "Search", searchingBy });
 };
-
-export const videos = (req, res) =>
-  res.render("Videos", { pageTitle: "Videos" });
 
 export const upload = (req, res) =>
   res.render("Upload", { pageTitle: "Upload" });
