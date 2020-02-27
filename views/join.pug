@@ -1,7 +1,7 @@
 extends layouts/main
 
 block content
-  .form__container
+  .form-container
     //- 사용자의 정보가 유출되면 안되기 때문에 post
     form(action=routes.join, meghod="post")
       input(type="text", placeholder="Full Name", name="name")
