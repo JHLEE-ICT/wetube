@@ -90,3 +90,5 @@ res.render(템플릿, 템플릿에 추가할 정보가 담긴 객체);
   기능
 
   화면 표시
+
+  controller가 query에 접근하려면 method가 get이여야한다(get이 url에 정보를 표시해주기 때문)
