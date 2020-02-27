@@ -1,4 +1,10 @@
 extends layouts/main
 
 block content
-  p Login
+  .form__container
+    //- 사용자의 정보가 유출되면 안되기 때문에 post
+    form(action=routes.login, meghod="post")
+      input(type="email", placeholder="Email", name="email")
+      input(type="password", placeholder="Password", name="password")
+      input(type="submit",value="Login")
+    include ./partials/socialLogin

@@ -2,6 +2,19 @@
 
 Cloning Youtube with Vanilla and NodeJS
 
+## 만들어야 하는 Pages:
+
+- [ ] Home
+- [ ] Join
+- [ ] Login
+- [x] Search
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Change Password
+- [ ] Upload
+- [ ] Video Detail
+- [ ] Edit Video
+
 <details>
 
 <summary> 강의 내용 정리 </summary>
