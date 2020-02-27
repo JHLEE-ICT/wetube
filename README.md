@@ -4,7 +4,7 @@ Cloning Youtube with Vanilla and NodeJS
 
 <details>
 
-<summary></summary>
+<summary> 강의 내용 정리 </summary>
 
 ## dependency란?
 
