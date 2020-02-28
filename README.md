@@ -112,4 +112,6 @@ res.render(템플릿, 템플릿에 추가할 정보가 담긴 객체);
 
   ## mixin = pug 함수의 일종이다
 
+  ## Status Code : 인터넷이 서로 어떻게 상호작용하는지 표시하는 것
+
 </details>
