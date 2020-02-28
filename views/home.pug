@@ -1,8 +1,13 @@
 //- home 화면이 레이아웃 코드를 복사 붙여넣기 한다는 뜻
 extends layouts/main
+include mixins/videoBlock
 
 block content
   .videos
-    each video in videos
-      h1=video.title
-      p=video.description
+    each item in videos
+      +videoBlock({
+        title:item.title,
+        views:item.views,
+        videoFile:item.videoFile
+      })
+      
