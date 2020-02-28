@@ -2,7 +2,6 @@
 import express from "express";
 import routes from "../routes";
 import {
-  users,
   userDetail,
   editProfile,
   changePassword
@@ -12,6 +11,7 @@ const userRouter = express.Router();
 
 userRouter.get(routes.editProfile, editProfile);
 userRouter.get(routes.changePassword, changePassword);
-userRouter.get(routes.userDetail, userDetail);
+//express에서는 /users/:id 로 인식을 하고 있기 때문에 인자 전달을 하지 않아도 된다.
+userRouter.get(routes.userDetail(), userDetail);
 
 export default userRouter;
