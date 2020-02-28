@@ -14,7 +14,7 @@ header.header
           a(href=routes.login) LogIn
       else
         li
-          a(href=routes.upload) Upload
+          a(href=`/videos${routes.upload}`) Upload
         li
           //- 템플릿에서는 '/users/1' 로 인식하기 때문에 인자전달이 필요하다
           a(href=routes.userDetail(user.id)) Profile
