@@ -125,6 +125,8 @@ res.render(템플릿, 템플릿에 추가할 정보가 담긴 객체);
 
   database의 정보를 url에 나타내지 않기 위해서 사용
 
+  PORT와 같은 중요한 내용이 들어있는 .env파일을 .gitignore에 저장해야한다
+
     </details>
 
 </details>

@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+//dotenv.config라는 함수로 .env 파일 안에 있는 정보를 불러올 수 있다
+dotenv.config();
 
 //database가 어디있는지 알려주는 것
-mongoose.connect("mongodb://localhost:27017/we-tube", {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useFindAndModify: false
 });
