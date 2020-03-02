@@ -20,7 +20,13 @@ const VideoSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  comments:[
+    {
+      type:mongoose.Schema.Types.ObjectId,
+      ref="Comment"
+    }
+  ]
 });
 
 //정의를 통해 실제 document를 만듬
