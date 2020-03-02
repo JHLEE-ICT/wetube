@@ -1,4 +1,3 @@
-import { videos } from "../db";
 import routes from "../routes";
 
 //render(템플릿, 템플릿에 추가할 정보가 담긴 객체)

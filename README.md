@@ -68,7 +68,7 @@ session을 다루기 위해 cookie에 user정보를 저장할 것
 
 데이터를 갖고있는 request object에 접근할 수 있게 하는 것
 
-##MVC
+### MVC
 
 - Model
 
@@ -110,8 +110,21 @@ res.render(템플릿, 템플릿에 추가할 정보가 담긴 객체);
 
   controller가 query에 접근하려면 method가 get이여야한다(get이 url에 정보를 표시해주기 때문)
 
-  ## mixin = pug 함수의 일종이다
+  ### mixin = pug 함수의 일종이다
 
-  ## Status Code : 인터넷이 서로 어떻게 상호작용하는지 표시하는 것
+  ### Status Code : 인터넷이 서로 어떻게 상호작용하는지 표시하는 것
+
+  <details>
+
+  <summary>mongoDB</summary>
+  - mongoose
+    
+    mongoDB와 JS를 연결시켜주는 Adapter
+
+  - dotenv
+
+  database의 정보를 url에 나타내지 않기 위해서 사용
+
+    </details>
 
 </details>

@@ -2,6 +2,8 @@
 
 //default로 import 했을 때
 import app from "./app";
+//db와의 연결
+import "./db";
 
 const PORT = 4000;
 
