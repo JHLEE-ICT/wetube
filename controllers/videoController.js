@@ -25,13 +25,20 @@ export const search = (req, res) => {
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
   const {
-    body: { file, title, description }
+    body: { title, description },
+    file: { path }
   } = req;
   //To Do:Upload and Save Video
+  const newVideo = await Video.create({
+    fileUrl: path,
+    title,
+    description
+  });
+  console.log(newVideo);
   // 사용자가 업로드하면 새 비디오에 새 id 할당 후 그 비디오의 페이지로 이동
-  res.redirect(routes.videoDetail(32493));
+  res.redirect(routes.videoDetail(newVideo.id));
 };
 
 export const videoDetail = (req, res) =>
