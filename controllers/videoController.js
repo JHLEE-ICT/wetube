@@ -7,7 +7,8 @@ export const home = async (req, res) => {
   //await는 async 없이는 쓸 수 없다
   //성공적으로 끝나는 것은 아님 그냥 끝날 때 까지 기다리는 것
   try {
-    const videos = await Video.find({});
+    //-1이란 위아래 순서를 바꾸겠다는 약속
+    const videos = await Video.find({}).sort({ _id: -1 });
     res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);
@@ -19,7 +20,7 @@ export const search = (req, res) => {
   const {
     query: { term: searchingBy }
   } = req;
-  res.render("search", { pageTitle: "Search", searchingBy, videos });
+  res.render("search", { pageTitle: "Search", searchingBy });
 };
 
 export const getUpload = (req, res) =>
@@ -85,6 +86,8 @@ export const deleteVideo = async (req, res) => {
   } = req;
   try {
     await Video.findOneAndRemove({ _id: id });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
   res.redirect(routes.home);
 };
