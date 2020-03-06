@@ -20,6 +20,8 @@ app.use(helmet());
 app.set("view engine", "pug");
 //middleware란 요청과 응답사이에 있는 것
 //원하는 만큼의 middleware를 두고 라우터를 반환
+// /uploads로 가면 uploads라는 directory 안으로 들어가는 것
+app.use("/uploads", express.static("uploads"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
