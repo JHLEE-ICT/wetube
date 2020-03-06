@@ -1,8 +1,18 @@
 import routes from "../routes";
-
+import Video from "../models/Video";
 //render(템플릿, 템플릿에 추가할 정보가 담긴 객체)
-export const home = (req, res) => {
-  res.render("home", { pageTitle: "Home", videos });
+//javascript는 한꺼번에 여러가지 일을 할 수 있기 때문에 일이 끝나기를 기다리는 것 = async
+export const home = async (req, res) => {
+  //await : 다음 과정이 끝날 때까지 잠시 기다려 달라는 의미
+  //await는 async 없이는 쓸 수 없다
+  //성공적으로 끝나는 것은 아님 그냥 끝날 때 까지 기다리는 것
+  try {
+    const videos = await Video.find({});
+    res.render("home", { pageTitle: "Home", videos });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", videos: [] });
+  }
 };
 export const search = (req, res) => {
   //searchingBy = req.query.term을 가져오는 것과 같은 방법
