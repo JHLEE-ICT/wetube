@@ -1,0 +1,36 @@
+.social-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  button {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+    span {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+  }
+  .social-login__github {
+    background-color: #807f89;
+    color: white;
+  }
+  .social-login__github:hover {
+    background-color: #807f898e;
+    color: white;
+  }
+  .social-login__facebook {
+    background-color: #64b3f4;
+    color: white;
+  }
+  .social-login__facebook:hover {
+    background-color: #a6d7f1dc;
+    color: white;
+  }
+}
