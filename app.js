@@ -6,11 +6,14 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import passport from "passport";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
 import { localMiddleware } from "./middlewares";
+
+import "./passport";
 
 //express 실행
 const app = express();
@@ -27,6 +30,8 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //local 변수를 global 변수로 사용하도록 만들어 주는 것
 app.use(localMiddleware);
