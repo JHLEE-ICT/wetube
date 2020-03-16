@@ -9,8 +9,24 @@ export const localMiddleware = (req, res, next) => {
   res.locals.siteName = "HyunTube";
   res.locals.routes = routes;
   res.locals.user = req.user || null;
-  console.log(req.user);
   next();
+};
+
+// 로그아웃 된 상태에서만 접근하겠다는 의미
+export const onlyPubilc = (req, res, next) => {
+  if (req.user) {
+    res.redirect(routes.home);
+  } else {
+    next();
+  }
+};
+
+export const onlyPrivate = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect(routes.home);
+  }
 };
 
 //single : 하나의 파일만 업로드 가능하다는 뜻
