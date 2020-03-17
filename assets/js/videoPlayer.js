@@ -66,14 +66,14 @@ const formatDate = seconds => {
     minutes = `0${minutes}`;
   }
   if (totalSeconds < 10) {
-    totalSeconds = `${totalSeconds}`;
+    totalSeconds = `0${totalSeconds}`;
   }
   return `${hours}:${minutes}:${totalSeconds}`;
 };
 
 function getCurrentTime() {
   //한번만 실행되는 함수
-  currentTime.innerHTML = formatDate(videoPlayer.currentTime);
+  currentTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
 }
 
 function setTotalTime() {
@@ -83,11 +83,17 @@ function setTotalTime() {
   setInterval(getCurrentTime, 1000);
 }
 
+function handleEnded() {
+  videoPlayer.currentTime = 0;
+  playBtn.innerHTML = '<i class="fas fa-play"></i>';
+}
+
 function init() {
   playBtn.addEventListener("click", handlePlayClick);
   vloumeBtn.addEventListener("click", handleVolumeClick);
   fullScrnBtn.addEventListener("click", goFullScreen);
   videoPlayer.addEventListener("loadedmetadata", setTotalTime);
+  videoPlayer.addEventListener("ended", handleEnded);
 }
 
 if (videoContainer) {
