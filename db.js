@@ -6,7 +6,8 @@ dotenv.config();
 //database가 어디있는지 알려주는 것
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useUnifiedTopology: true
 });
 
 //mongoDB와의 연결을 저장
