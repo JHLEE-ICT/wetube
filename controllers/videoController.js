@@ -57,7 +57,7 @@ export const videoDetail = async (req, res) => {
   } = req;
   try {
     //내용을 가져오고 싶으면 populate
-    const video = await (await Video.findById(id))
+    const video = await Video.findById(id)
       .populate("creator")
       .populate("comments");
     res.render("videoDetail", { pageTitle: video.title, video });
