@@ -8,7 +8,7 @@ export const localMiddleware = (req, res, next) => {
   //locals에 있는 건 템플릿에 변수명처럼 존재
   res.locals.siteName = "HyunTube";
   res.locals.routes = routes;
-  res.locals.user = req.user || null;
+  res.locals.loggedUser = req.user || null;
   next();
 };
 

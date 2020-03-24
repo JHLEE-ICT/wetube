@@ -8,7 +8,7 @@ header.header
         input(type="text", placeholder="Search", name="term") 
     .header__column
       ul
-        if !user
+        if !loggedUser
           li
             a(href=routes.join) Join
           li
@@ -18,6 +18,6 @@ header.header
             a(href=`/videos${routes.upload}`) Upload
           li
             //- 템플릿에서는 '/users/1' 로 인식하기 때문에 인자전달이 필요하다
-            a(href=routes.userDetail(user.id)) Profile
+            a(href=routes.me) Profile
           li
             a(href=routes.logout) Logout
