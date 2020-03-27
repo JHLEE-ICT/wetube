@@ -22,6 +22,7 @@ const UPLOAD = "/upload";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
+const DELETE_COMMENT = "/:id/delete-comment";
 
 //Github
 const GITHUB = "/auth/github";
@@ -74,6 +75,13 @@ const routes = {
       return `/videos/${id}/delete`;
     } else {
       return DELETE_VIDEO;
+    }
+  },
+  deleteComment: id => {
+    if (id) {
+      return `/videos/${id}/delete-comment`;
+    } else {
+      return DELETE_COMMENT;
     }
   },
   github: GITHUB,

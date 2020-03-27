@@ -44,9 +44,11 @@ export const postUpload = async (req, res) => {
   const newVideo = await Video.create({
     fileUrl: path,
     title,
-    description
+    description,
+    creator: req.user.id
   });
-  console.log(newVideo);
+  req.user.videos.push(newVideo.id);
+  req.user.save();
   // 사용자가 업로드하면 새 비디오에 새 id 할당 후 그 비디오의 페이지로 이동
   res.redirect(routes.videoDetail(newVideo.id));
 };
@@ -73,7 +75,11 @@ export const getEditVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-    res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
+    if (video.creator !== req.user.id) {
+      throw Error();
+    } else {
+      res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
+    }
   } catch (error) {
     res.redirect(routes.home);
   }
@@ -97,7 +103,12 @@ export const deleteVideo = async (req, res) => {
     params: { id }
   } = req;
   try {
-    await Video.findOneAndRemove({ _id: id });
+    const video = await Video.findById(id);
+    if (video.creator !== req.user.id) {
+      throw Error();
+    } else {
+      await Video.findOneAndRemove({ _id: id });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -131,7 +142,7 @@ export const postAddComment = async (req, res) => {
     user
   } = req;
   try {
-    const video = await Video.findById(id);
+    const video = await await Video.findById(id);
     const newComment = await Comment.create({
       text: comment,
       creator: user.id
@@ -143,4 +154,21 @@ export const postAddComment = async (req, res) => {
   } finally {
     res.end();
   }
+};
+
+export const deleteComment = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const comment = await Comment.findOne({ creator: id });
+    if (comment.creator == req.user.id) {
+      await Comment.findOneAndRemove({ creator: id });
+    } else {
+      throw Error();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.home);
 };

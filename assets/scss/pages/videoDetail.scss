@@ -16,6 +16,12 @@
       width: 100px;
       margin-bottom: 15px;
     }
+    .video__author {
+      a {
+        font-weight: bold;
+        color: #eca4a6;
+      }
+    }
     .video__title,
     .video__views,
     .video__description {
@@ -54,9 +60,18 @@
         font-weight: 600;
         padding: 15px;
         border-radius: 20px;
+        display: flex;
+        justify-content: center;
         border-bottom-left-radius: 0px;
+        position: relative;
         &:not(:last-child) {
           margin-bottom: 15px;
+        }
+        .video__comment-delete {
+          cursor: pointer;
+          position: absolute;
+          right: 10px;
+          margin-left: 5px;
         }
       }
     }
