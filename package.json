@@ -49,12 +49,18 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static' ",
-    "dev:assets": "set WEBPACK_ENV=development&&webpack -w",
-    "build:assets": "set WEBPACK_ENV=production&&webpack",
-    "tunnel": "ngrok http 4000"
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
+    "dev:assets": "cd src && WEBPACK_ENV=development webpack -w",
+    "build:assets": "cd src && WEBPACK_ENV=production webpack",
+    "build:server": "babel src --out-dir build",
+    "copyAll": "cp -R src/static build && cp -R src/views build",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "rm -rf build",
+    "tunnel": "ngrok http 4000",
+    "start": "node build/init.js"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
     "nodemon": "^2.0.2",

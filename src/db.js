@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 //database가 어디있는지 알려주는 것
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGO_URL_PROD, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true

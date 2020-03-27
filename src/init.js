@@ -1,6 +1,7 @@
 //init.js에 application을 호출하고 싶을 때
 
 //default로 import 했을 때
+import "@babel/polyfill";
 import dotenv from "dotenv";
 dotenv.config();
 
