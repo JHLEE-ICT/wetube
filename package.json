@@ -58,7 +58,7 @@
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rm -rf build",
     "tunnel": "ngrok http 4000",
-    "start": "node build/init.js",
+    "start": "PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
   "devDependencies": {
