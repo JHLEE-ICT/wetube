@@ -4,11 +4,14 @@ import dotenv from "dotenv";
 dotenv.config();
 
 //database가 어디있는지 알려주는 것
-mongoose.connect(process.env.MONGO_URL_PROD, {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  process.env.PRODUCTION ? process.env.MONGO_URL_PROD : process.env.MONGO_URL,
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+  }
+);
 
 //mongoDB와의 연결을 저장
 const db = mongoose.connection;
